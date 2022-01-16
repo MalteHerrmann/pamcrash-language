@@ -1,0 +1,25 @@
+{
+    "name": "pamcrash-language",
+    "displayName": "Pamcrash Language",
+    "description": "Language support for PamCrash Files",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.63.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "pam",
+            "aliases": ["PamCrash", "pam"],
+            "extensions": [".pc",".inc",".mtr"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "pam",
+            "scopeName": "source.pam",
+            "path": "./syntaxes/pam.tmLanguage.json"
+        }]
+    }
+}
