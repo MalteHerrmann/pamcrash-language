@@ -2,7 +2,8 @@
     "name": "pamcrash-language",
     "displayName": "Pamcrash Language",
     "description": "Language support for PamCrash Files",
-    "version": "0.0.1",
+    "publisher": "Malte Herrmann",
+    "version": "0.1.0",
     "engines": {
         "vscode": "^1.63.0"
     },

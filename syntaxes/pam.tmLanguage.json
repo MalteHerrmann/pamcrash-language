@@ -3,27 +3,66 @@
 	"name": "PamCrash",
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#pam_keywords"
 		},
 		{
-			"include": "#strings"
+			"include": "#pam_numeric"
+		},
+		{
+			"include": "#pam_variables"
+		},
+		{
+			"include": "#pam_comments"
+		},
+		{
+			"include": "#names"
 		}
 	],
 	"repository": {
-		"keywords": {
+		"pam_comments": {
 			"patterns": [{
-				"name": "keyword.control.pam",
-				"match": "\\b(if|while|for|return)\\b"
+				"comment": "Comment line",
+				"begin": "^[$#]",
+				"end": "(?=\\n|\\r)",
+				"name": "comment.line.pam"
 			}]
 		},
-		"strings": {
-			"name": "string.quoted.double.pam",
-			"begin": "\"",
-			"end": "\"",
+		"pam_keywords": {
+			"patterns": [{
+				"comment": "Pam-Crash Keyword",
+				"name": "keyword.control.pam",
+				"match": "^([\\w\\s]{6}/)|(END_\\w+)"
+			}]
+		},
+		"pam_numeric": {
 			"patterns": [
 				{
-					"name": "constant.character.escape.pam",
-					"match": "\\\\."
+					"comment": "General Pamcrash Numbers",
+					"name": "constant.numeric.float.decimal.pamcrash",
+					"match": "(?:([\\+\\-]*(\\d+\\.*\\d*)([eE][\\-\\+]?\\d+)*))(?=[^A-QS-Za-qs-z_])"
+				}
+			]
+		},
+		"pam_variables": {
+			"patterns": [
+				{
+					"comment": "Referenced Pamcrash Variables",
+					"name": "storage.pamcrash",
+					"match": "(\\<\\S+\\>)"
+				}
+			],
+			"settings": {
+				"foreground": "#9CDCFE"
+			}
+		},
+		"names":{
+			"patterns": [
+				{
+					"comment": "Name",
+					"match": "^NAME(\\s+\\S+)",
+					"captures": {
+						"1": {"name": "string.unquoted.pamcrash"}
+					}
 				}
 			]
 		}
