@@ -39,7 +39,7 @@
 				{
 					"comment": "General Pamcrash Numbers",
 					"name": "constant.numeric.float.decimal.pamcrash",
-					"match": "(?:([\\+\\-]*(\\d+\\.*\\d*)([eE][\\-\\+]?\\d+)*))(?=[^A-QS-Za-qs-z_])"
+					"match": "(^|\\s+)(?:([\\+\\-]*(\\d+\\.*\\d*)([eE][\\-\\+]?\\d+)*))(?=[^A-QS-Za-qs-z_])(\\s+|[\\n\\r])"
 				}
 			]
 		},
@@ -50,10 +50,7 @@
 					"name": "storage.pamcrash",
 					"match": "(\\<\\S+\\>)"
 				}
-			],
-			"settings": {
-				"foreground": "#9CDCFE"
-			}
+			]
 		},
 		"names":{
 			"patterns": [
